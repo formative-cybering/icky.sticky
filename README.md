@@ -39,3 +39,9 @@ Run:
 ```sh
 ./icky
 ```
+
+---
+
+Todo:
+
+- [ ] Add config for custom css
