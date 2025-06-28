@@ -1,3 +1,5 @@
+![icky-sticky](/icky.png)
+
 # Icky Sticky
 
 Degenerate sticky notes
