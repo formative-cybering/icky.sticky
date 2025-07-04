@@ -1,0 +1,25 @@
+{
+  "languages": {
+    "Vala": {
+      "enable_language_server": true,
+      "language_servers": ["vala-language-server"],
+      "tab_size": 2,
+      "format_on_save": "on"
+    }
+  },
+  "lsp": {
+    "vala-language-server": {
+      "binary": {
+        "path": "/usr/bin/vala-language-server"
+      },
+      "initialization_options": {
+        "packages": [
+          "gtk4",
+          "gio-2.0",
+          "gio-unix-2.0",
+          "posix"
+        ]
+      }
+    }
+  }
+}
