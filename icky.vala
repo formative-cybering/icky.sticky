@@ -21,24 +21,17 @@ public class IckySticky : Gtk.Application {
     win.set_default_size(100, 100);
 
     // css
-    var provider = new Gtk.CssProvider();
-    provider.load_from_string("""
-      window#icky-sticky {
-        background-color: rgba(0, 0, 0, 0);
-        background-image: none;
-      }
-      window#icky-sticky > * {
-        background-color: rgba(0, 0, 0, 0);
-      }
-      #sticky-icky {
-        font-size: 30pt;
-        font-family: "Boxcutter";
-        background-color: rgba(0, 0, 0, 0);
-        background-image: none;
-      }
-    """);
+    string config_dir = GLib.get_user_config_dir();
+    string css_dir = Path.build_filename(config_dir, "icky");
+    string css_path = Path.build_filename(css_dir, "sticky.css");
 
-    Gtk.StyleContext.add_provider_for_display(win.get_display(), provider, Gtk.STYLE_PROVIDER_PRIORITY_USER);
+    var provider = new Gtk.CssProvider();
+    try {
+        provider.load_from_file(File.new_for_path(css_path));
+        Gtk.StyleContext.add_provider_for_display(win.get_display(), provider, Gtk.STYLE_PROVIDER_PRIORITY_USER);
+    } catch (Error e) {
+        stderr.printf("Error loading CSS: %s\n", e.message);
+    }
 
     var btn = new Gtk.Button.with_label(this.button_label);
     btn.set_name("sticky-icky");
