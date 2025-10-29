@@ -21,7 +21,7 @@ public class IckySticky : Gtk.Application {
     win.set_default_size(100, 100);
 
     // css
-    string config_dir = GLib.get_user_config_dir();
+    string config_dir = GLib.Environment.get_user_config_dir();
     string css_dir = Path.build_filename(config_dir, "icky");
     string css_path = Path.build_filename(css_dir, "sticky.css");
 
@@ -30,7 +30,7 @@ public class IckySticky : Gtk.Application {
         provider.load_from_file(File.new_for_path(css_path));
         Gtk.StyleContext.add_provider_for_display(win.get_display(), provider, Gtk.STYLE_PROVIDER_PRIORITY_USER);
     } catch (Error e) {
-        stderr.printf("Error loading CSS: %s\n", e.message);
+        GLib.stderr.printf("Error loading CSS: %s\n", e.message);
     }
 
     var btn = new Gtk.Button.with_label(this.button_label);

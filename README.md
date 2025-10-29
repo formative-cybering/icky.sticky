@@ -16,7 +16,25 @@ icky "buy milk"
 
 Notes are ephemeral, when you close them, they are gone forever. There is no persistance layer (yet...)
 
-hyprland.conf example:
+Styling: `~/.config/icky/sticky.css`
+
+```css
+window#icky-sticky {
+  background-color: rgba(0, 0, 0, 0);
+  background-image: none;
+}
+window#icky-sticky > * {
+  background-color: rgba(0, 0, 0, 0);
+}
+#sticky-icky {
+  font-size: 30pt;
+  font-family: "Boxcutter";
+  background-color: rgba(0, 0, 0, 0);
+  background-image: none;
+}
+```
+
+`hyprland.conf` example:
 
 ```hyprlang
 exec-once = icky
@@ -39,9 +57,3 @@ Run:
 ```sh
 ./icky
 ```
-
----
-
-Todo:
-
-- [ ] Add config for custom css
