@@ -1,4 +1,4 @@
-![icky-sticky](/icky.png)
+![icky-sticky](/sticky.png)
 
 # Icky Sticky
 
@@ -8,10 +8,10 @@ CLI:
 
 ```sh
 # start daemon
-icky
+sticky
 
 # add note
-icky "buy milk"
+sticky "buy milk"
 ```
 
 Notes are ephemeral, when you close them, they are gone forever. There is no persistance layer (yet...)
@@ -37,7 +37,7 @@ window#icky-sticky > * {
 `hyprland.conf` example:
 
 ```hyprlang
-exec-once = icky
+exec-once = sticky
 
 windowrule = float, class:^(icky.sticky)
 windowrule = pin, class:^(icky.sticky)
@@ -55,5 +55,5 @@ Build: requires vala, gtk4 + glib2
 Run:
 
 ```sh
-./icky
+./sticky
 ```
